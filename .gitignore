@@ -1,0 +1,12 @@
+CurrencyExchangeRates/Helpers/bin/
+CurrencyExchangeRates/Helpers/obj/Debug/
+CurrencyExchangeRates/Model/bin/
+CurrencyExchangeRates/Model/obj/
+CurrencyExchangeRates/NetworkCore/bin/
+CurrencyExchangeRates/NetworkCore/obj/
+CurrencyExchangeRates/UI/CurrencyExchangeRates/bin/
+*.Cache
+CurrencyExchangeRates/UICore/obj/
+CurrencyExchangeRates/UICore/bin/
+CurrencyExchangeRates/UI/CurrencyExchangeRates/bld/
+CurrencyExchangeRates/UI/CurrencyExchangeRates/CurrencyExchangeRates.jsproj.user

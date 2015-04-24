@@ -1,0 +1,52 @@
+<!--
+Copyright (c) Microsoft Corporation. All rights reserved
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WinJS project</title>
+        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+        <meta name="msapplication-tap-highlight" content="no" />
+    
+        <link rel="stylesheet" href="WinJS/css/ui-light.css" />
+        <script src="WinJS/js/WinJS.min.js"></script>
+        <script src="js/canvasjs.js"></script>
+        <link rel="stylesheet" href="css/default.css" />
+        <script src="js/default.js"></script>
+    </head>
+    <body>
+        <!--<p>Your content here...</p>
+            <button onclick="GetCurrency()">Get Currency</button>-->
+        <div class="panel-heading">
+            <p class="currency-type">1$</p>
+            <p class="currency-value" id="currentCurrency"></p>
+        </div>
+        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+    
+    </body>
+</html>
+
+
+<style>
+    body {
+        color: #fff;
+        background-color: #337ab7;
+        border-color: #337ab7;
+    }
+
+    p {
+        text-align: center;
+        font-family: "Courier New", Courier, monospace;
+    }
+
+    .currency-value {
+        font-size: 100px;
+        margin: 0 0px 10px 0px;
+    }
+
+    .currency-type {
+        font-size: 20px;
+        margin: 0 0px 10px 0px;
+    }
+</style>
