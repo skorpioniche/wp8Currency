@@ -80,6 +80,10 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <ProjectReference Include="..\Helpers\Helpers.csproj">
+      <Project>{29a423d1-5a45-4547-9390-d80d4eb53a77}</Project>
+      <Name>Helpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{fd12e990-2e18-4205-abdc-edf314786382}</Project>
       <Name>Model</Name>

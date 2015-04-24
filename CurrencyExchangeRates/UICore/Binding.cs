@@ -1,4 +1,5 @@
-﻿using NetworkCore;
+﻿using Helpers;
+using NetworkCore;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,24 +14,23 @@ namespace UICore
 {
     public sealed class Binding
     {
-        public IList<string> tt { get; set; }
-        public string GetTestString()
+        public KeyValuePair<string, int> GetLastCurrency()
         {
-            var t = new ExRates();
-            //var rate = t.GetRatePeriod(DateTime.Now.AddDays(-30), DateTime.Now.AddDays(1));
-            var rate = t.GetRate(DateTime.Now);
-            return rate.Rate.ToString();
+            var exrateService = new ExRates();
+            var rate = exrateService.GetRate(DateTime.Now.AddDays(1));
+            var result = new KeyValuePair<string, int>(DateHelper.ConvertToUiStringDate(rate.Date), rate.Rate);
+            return result;
 
         }
 
-        public IList<int> GetCurencesList()
+        public IList<KeyValuePair<long, int>> GetCurencesList()
         {
             var exrateService = new ExRates();
-            //DateTime dateNow = DateTime.Now;
-            //var firstMonthDay = new DateTime(dateNow.Year, dateNow.Month, 1);
-
-            var rates = exrateService.GetRatePeriod(DateTime.Now.AddMonths(-1), DateTime.Now);
-            return rates.Select(r => r.Rate).ToList();
+            var rates = exrateService.GetRatePeriod(DateTime.Now.AddMonths(-1), DateTime.Now.AddDays(1));
+            var result = rates.Select(exRatesModel =>
+                                      new KeyValuePair<long, int>(DateHelper.ConvertToTimestamp(exRatesModel.Date), 
+                                                                  exRatesModel.Rate)).ToList();
+            return result;
         }
     }
 }

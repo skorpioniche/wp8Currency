@@ -17,11 +17,18 @@ function ShowStatusPanel() {
     panel.foregroundColor = Windows.UI.Colors.lightGray;
 }
 
+function UpdateCurrency() {
+    GetCurrency();
+    GraphCreate();
+}
+
 function GetCurrency() {
     var ui = new UICore.Binding();
-    var rate = ui.getTestString();
+    var rate = ui.getLastCurrency();
     var currencyElement = document.getElementById("currentCurrency");
-    currencyElement.textContent = rate;
+    var currencyElementDay = document.getElementById("currentCurrencyDay");
+    currencyElement.textContent = rate.value;
+    currencyElementDay.textContent = rate.key;
 }
 
 function createIndexLabel(element, points, currentIndex) {
@@ -46,39 +53,39 @@ function GraphCreate(parameters) {
     var dps = [];
     rates.forEach(function (element, index, array) {
         dps.push({
-            x: new Date(2015, 3, index + 1),
-            y: element,
-            indexLabel: createIndexLabel(element, dps, index)
+            x: element.key,
+            y: element.value,
+            indexLabel: createIndexLabel(element.value, dps, index)
         });
     });
         var chart = new CanvasJS.Chart("chartContainer",
-        {
-            theme: "theme2",
-            title:{
-                text: "USD/BLR April:"
-            },
-            animationEnabled: true,
-            animationDuration: 4000,
-            axisX: {
-                valueFormatString: "DD-MMM",
-                interval:1,
-                //intervalType: "day"
-        
-            },
-            toolTip:{
-                enabled: false
-            },
-            axisY: {
-                includeZero: false,
-                //interval: .25,
-                //valueFormatString: "#.00'%'"
-            },
+            {
+                theme: "theme2",
+                title: {
+                    text: "USD/BLR April:"
+                },
+                animationEnabled: true,
+                animationDuration: 4000,
+                axisX: {
+                    valueFormatString: "DD-MMM",
+                    interval: 5,
+                    intervalType: "day"
+
+                },
+                toolTip: {
+                    enabled: false
+                },
+                axisY: {
+                    includeZero: false,
+                    //interval: .25,
+                    //valueFormatString: "#.00'%'"
+                },
 
             data: [
             {
                 type: "area",
-                toolTipContent: "{x}: {y}%",
-                markerSize: 5,
+                xValueType: "dateTime",
+                //markerSize: 5,
                 dataPoints: dps
             }
 
