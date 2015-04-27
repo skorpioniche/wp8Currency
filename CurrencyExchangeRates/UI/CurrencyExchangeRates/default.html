@@ -16,27 +16,48 @@ Copyright (c) Microsoft Corporation. All rights reserved
         <script src="js/default.js"></script>
     </head>
     <body>
-        <!--<p>Your content here...</p>
-            <button onclick="GetCurrency()">Get Currency</button>-->
-        <div class="panel-heading">
-            <p class="currency-type">1$</p>
-            
-            <p class="currency-value" id="currentCurrency"></p>
+        <div data-win-control="WinJS.UI.Pivot" data-win-options="{ selectedIndex: 2 }">
+            <div class="pivotItem USD" data-win-control="WinJS.UI.PivotItem" data-win-options="{ 'header': 'USD' }">
+                <div class="panel-heading">
+                    <p class="currency-value" id="currentCurrency"></p>
+                </div>
+                <div>
+                    <p class="currency-day"></p>
+                    <button onclick="UpdateCurrency('USD')">Update</button>
+                </div>
+                <div class="currency-chart" style="height: 45%; width: 100%;"></div>
+            </div>
+
+            <div class="pivotItem EUR" data-win-control="WinJS.UI.PivotItem" data-win-options="{ 'header': 'EUR' }">
+                <div class="panel-heading">
+                    <p class="currency-value" id="currentCurrency"></p>
+                </div>
+                <div>
+                    <p class="currency-day"></p>
+                    <button onclick="UpdateCurrency('EUR')">Update</button>
+                </div>
+                <div class="currency-chart" style="height: 45%; width: 100%;"></div>
+            </div>
+
+            <div class="pivotItem RUB" data-win-control="WinJS.UI.PivotItem" data-win-options="{ 'header': 'RUB' }">
+                <div class="panel-heading">
+                    <p class="currency-value" id="currentCurrency"></p>
+                </div>
+                <div>
+                    <p class="currency-day"></p>
+                    <button onclick="UpdateCurrency('RUB')">Update</button>
+                </div>
+                <div class="currency-chart" style="height: 45%; width: 100%;"></div>
+            </div>
         </div>
-        <div>
-            <p id="currentCurrencyDay"></p>
-            <button onclick="UpdateCurrency()">Update</button>
-        </div>
-        <div id="chartContainer" style="height: 45%; width: 100%;"></div>
-    
     </body>
 </html>
 
 
 <style>
     body {
-        color: #fff;
-        background-color: #337ab7;
+        color: whitesmoke;
+        background-color: #008080;
     }
 
     p {
@@ -53,4 +74,18 @@ Copyright (c) Microsoft Corporation. All rights reserved
         font-size: 20px;
         margin: 0 0px 10px 0px;
     }
+
+    .win-pivot-item .win-pivot-item-content {
+        padding: 0 0 0 9px;
+        
+    }
+
+    button.win-pivot-header {
+        color: whitesmoke;
+    }
+
+    .win-pivot {
+        /*background-image: url('images/fon.jpg');*/
+    }
+    
 </style>

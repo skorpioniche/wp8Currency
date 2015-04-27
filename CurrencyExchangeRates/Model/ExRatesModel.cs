@@ -6,6 +6,6 @@ namespace Model
     {
         public DateTime Date { get; set; }
 
-        public int Rate { get; set; }
+        public double Rate { get; set; }
     }
 }
