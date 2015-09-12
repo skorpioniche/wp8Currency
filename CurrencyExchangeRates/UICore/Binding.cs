@@ -41,6 +41,24 @@ namespace UICore
 
         }
 
+        public KeyValuePair<string, double> GetCurrency(string currency, string date)
+        {
+            var exrateService = new ExRatesService();
+            ExRatesModel rate;
+            try
+            {
+                var dateTime = DateHelper.ConvertToDateFromUiString(date);
+                rate = exrateService.GetRate(СurrencyEnumHelper.GetCurrencyByName(currency), dateTime.Value.AddDays(-1));
+            }
+            catch (Exception)
+            {
+                return new KeyValuePair<string, double>("Нет подключения к сети", 0);
+            }
+
+            var result = new KeyValuePair<string, double>(DateHelper.ConvertToUiStringDate(rate.Date), rate.Rate);
+            return result;
+        }
+
         public IList<KeyValuePair<long, double>> GetCurencesList(string currency)
         {
             var exrateService = new ExRatesService();

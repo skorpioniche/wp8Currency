@@ -19,7 +19,7 @@ function ShowStatusPanel() {
     var panel = Windows.UI.ViewManagement.StatusBar.getForCurrentView();
     panel.showAsync();
     panel.backgroundOpacity = 0.99;
-    panel.backgroundColor = Windows.UI.ColorHelper.fromArgb(255, 0x00, 0x80, 0x80); //#008080
+    panel.backgroundColor = Windows.UI.ColorHelper.fromArgb(0, 0, 0, 0x4);//fromArgb(255, 0x7d, 0xb9, 0xe8); //#7db9e8 
     panel.foregroundColor = Windows.UI.Colors.lightGray;
 }
 
@@ -31,10 +31,35 @@ function UpdateCurrency(currencyName) {
 function GetCurrency(currencyName) {
     var ui = new UICore.Binding();
     var rate = ui.getLastCurrency(currencyName);
+    var prevRate = ui.getCurrency(currencyName, rate.key);
+    var diffRate = rate.value - prevRate.value;
+
     var currencyElement = document.querySelector("." + currencyName + " .currency-value");
-    var currencyElementDay = document.querySelector("." + currencyName + " .currency-day"); 
+    var currencyDayElement = document.querySelector("." + currencyName + " .currency-day"); 
+    var currencyArrowElement = document.querySelector("." + currencyName + " .arrow");
+    var currencyDiffElement = document.querySelector("." + currencyName + " .currency-diff");
+
+    if (diffRate < 0) {
+        currencyArrowElement.src = "images/downArrow.png";
+    } else if(diffRate >0) {
+        currencyArrowElement.src = "images/upArrow.png";
+    } else {
+        currencyArrowElement.src = "";
+    }
+    //var upArrowClassName = "up";
+    //var downArrowClassName = "down";
+    //if (currencyArrow.classList.contains(upArrowClassName)) {
+    //    currencyArrow.classList.remove(upArrowClassName);
+    //}
+
+    //if (currencyArrow.classList.contains(downArrowClassName)) {
+    //    currencyArrow.classList.remove(downArrowClassName);
+    //}
+
+    //currencyArrow.classList.add(downArrowClassName);
     currencyElement.textContent = rate.value;
-    currencyElementDay.textContent = rate.key;
+    currencyDayElement.textContent = rate.key;
+    currencyDiffElement.textContent = diffRate + "(" + (Math.abs(diffRate) * 100 / prevRate.value).toFixed(4) + "%)";
 }
 
 function createIndexLabel(element, points, currentIndex) {
@@ -66,12 +91,19 @@ function GraphCreate(currencyName) {
     });
     var chart = new CanvasJS.Chart(document.querySelector("." + currencyName + " .currency-chart"),
             {
-                theme: "theme2",
+                
+                backgroundColor: "#d6d6d6",
+               
+                    Axis: {
+                        lineColor: "#FFF"
+                    },
+                theme: "theme4",
                 title: {
-                    text: "USD/BLR April:"
+                    text: currencyName + "/BLR:",
+                    //backgroundColor: null
                 },
                 animationEnabled: true,
-                animationDuration: 4000,
+                animationDuration: 1500,
                 axisX: {
                     valueFormatString: "DD-MMM",
                     interval: 5,
@@ -91,6 +123,8 @@ function GraphCreate(currencyName) {
             {
                 type: "area",
                 xValueType: "dateTime",
+                color: "red",
+                //fillOpacity: 1,
                 //markerSize: 5,
                 dataPoints: dps
             }

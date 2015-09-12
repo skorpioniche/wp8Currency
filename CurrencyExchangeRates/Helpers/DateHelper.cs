@@ -17,18 +17,12 @@ namespace Helpers
 
         public static DateTime? ConvertToDate(string dateString)
         {
-            var dateValue = new DateTime();
-            if (DateTime.TryParseExact(dateString, DateFormatForServices,
-                new CultureInfo("en-US"),
-                DateTimeStyles.None,
-                out dateValue))
-            {
-                return dateValue;
-            }
-            else
-            {
-                return null;
-            }
+            return ConvertToDate(dateString, DateFormatForServices);
+        }
+
+        public static DateTime? ConvertToDateFromUiString(string dateString)
+        {
+            return ConvertToDate(dateString, DateFormatUi);
         }
 
         public static string ConvertToStringDate(DateTime date)
@@ -46,6 +40,22 @@ namespace Helpers
         {
             TimeSpan elapsedTime = date - Epoch;
             return (long) elapsedTime.TotalSeconds*1000;
+        }
+
+        private static DateTime? ConvertToDate(string dateString, string dateFormat)
+        {
+            var dateValue = new DateTime();
+            if (DateTime.TryParseExact(dateString, dateFormat,
+                new CultureInfo("en-US"),
+                DateTimeStyles.None,
+                out dateValue))
+            {
+                return dateValue;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
