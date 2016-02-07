@@ -48,7 +48,7 @@ namespace UICore
             try
             {
                 var dateTime = DateHelper.ConvertToDateFromUiString(date);
-                rate = exrateService.GetRate(СurrencyEnumHelper.GetCurrencyByName(currency), dateTime.Value.AddDays(-1));
+                rate = exrateService.GetRate(СurrencyEnumHelper.GetCurrencyByName(currency), dateTime.Value.AddDays(-3));
             }
             catch (Exception)
             {

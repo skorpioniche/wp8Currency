@@ -10,3 +10,6 @@ CurrencyExchangeRates/UICore/obj/
 CurrencyExchangeRates/UICore/bin/
 CurrencyExchangeRates/UI/CurrencyExchangeRates/bld/
 CurrencyExchangeRates/UI/CurrencyExchangeRates/CurrencyExchangeRates.jsproj.user
+CurrencyExchangeRates/UI/CurrencyExchangeRates/AppPackages/
+CurrencyExchangeRates/Helpers/obj/
+CurrencyExchangeRates/UI/CurrencyExchangeRates/Package.StoreAssociation.xml

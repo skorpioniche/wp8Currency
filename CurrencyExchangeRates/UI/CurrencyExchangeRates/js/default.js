@@ -1,4 +1,4 @@
-//// Copyright (c) Microsoft Corporation. All rights reserved
+﻿//// Copyright (c) Microsoft Corporation. All rights reserved
 
 (function () {
     WinJS.UI.processAll().then(function () {
@@ -29,6 +29,9 @@ function UpdateCurrency(currencyName) {
 }
 
 function GetCurrency(currencyName) {
+    var redColor = "#FF0000";
+    var greenColor = "#00FF00";
+
     var ui = new UICore.Binding();
     var rate = ui.getLastCurrency(currencyName);
     var prevRate = ui.getCurrency(currencyName, rate.key);
@@ -41,25 +44,20 @@ function GetCurrency(currencyName) {
 
     if (diffRate < 0) {
         currencyArrowElement.src = "images/downArrow.png";
-    } else if(diffRate >0) {
+        currencyDiffElement.style.color = redColor;
+    } else if (diffRate > 0) {
+        currencyDiffElement.style.color = greenColor;
         currencyArrowElement.src = "images/upArrow.png";
     } else {
-        currencyArrowElement.src = "";
+        currencyDiffElement.style.display = "none";
+        currencyArrowElement.style.display = "none"
     }
-    //var upArrowClassName = "up";
-    //var downArrowClassName = "down";
-    //if (currencyArrow.classList.contains(upArrowClassName)) {
-    //    currencyArrow.classList.remove(upArrowClassName);
-    //}
 
-    //if (currencyArrow.classList.contains(downArrowClassName)) {
-    //    currencyArrow.classList.remove(downArrowClassName);
-    //}
-
-    //currencyArrow.classList.add(downArrowClassName);
-    currencyElement.textContent = rate.value;
+    currencyElement.textContent = Math.round(rate.value);
     currencyDayElement.textContent = rate.key;
-    currencyDiffElement.textContent = diffRate + "(" + (Math.abs(diffRate) * 100 / prevRate.value).toFixed(4) + "%)";
+
+
+    currencyDiffElement.textContent = diffRate.toFixed(1) + "(" + (Math.abs(diffRate) * 100 / prevRate.value).toFixed(2) + "%)"; //
 }
 
 function createIndexLabel(element, points, currentIndex) {
@@ -99,7 +97,7 @@ function GraphCreate(currencyName) {
                     },
                 theme: "theme4",
                 title: {
-                    text: currencyName + "/BLR:",
+                    text: currencyName + "/BYR:",
                     //backgroundColor: null
                 },
                 animationEnabled: true,

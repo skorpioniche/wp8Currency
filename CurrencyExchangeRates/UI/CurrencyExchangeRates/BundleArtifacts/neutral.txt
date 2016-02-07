@@ -1,0 +1,5 @@
+MainPackage=D:\projects\wp\git\wp8Currency\CurrencyExchangeRates\UI\CurrencyExchangeRates\bin\Release\CurrencyExchangeRates_1.1.0.1_Bundle\CurrencyExchangeRates_1.1.0.1_AnyCPU.appx
+SymbolPackage=D:\projects\wp\git\wp8Currency\CurrencyExchangeRates\UI\CurrencyExchangeRates\AppPackages\CurrencyExchangeRates_1.1.0.1_Test\CurrencyExchangeRates_1.1.0.1_AnyCPU.appxsym
+ResourcePack=D:\projects\wp\git\wp8Currency\CurrencyExchangeRates\UI\CurrencyExchangeRates\bin\Release\CurrencyExchangeRates_1.1.0.1_Bundle\CurrencyExchangeRates_1.1.0.1_language-en.appx
+ResourcePack=D:\projects\wp\git\wp8Currency\CurrencyExchangeRates\UI\CurrencyExchangeRates\bin\Release\CurrencyExchangeRates_1.1.0.1_Bundle\CurrencyExchangeRates_1.1.0.1_scale-100.appx
+ResourcePack=D:\projects\wp\git\wp8Currency\CurrencyExchangeRates\UI\CurrencyExchangeRates\bin\Release\CurrencyExchangeRates_1.1.0.1_Bundle\CurrencyExchangeRates_1.1.0.1_scale-140.appx

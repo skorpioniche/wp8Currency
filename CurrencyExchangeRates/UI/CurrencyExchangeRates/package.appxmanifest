@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="5b53b559-f1f0-434c-8289-8cebaf57f439" Version="1.0.0.0" Publisher="CN=Dima" />
-  <mp:PhoneIdentity PhoneProductId="5b53b559-f1f0-434c-8289-8cebaf57f439" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="47520blTb.58702C42BBBA6" Version="1.1.0.1" Publisher="CN=2EC07E3F-B75A-4A46-AE60-6C90730CFA16" />
+  <mp:PhoneIdentity PhoneProductId="684421b6-af59-4185-839c-24234e6355b5" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>CurrencyExchangeRates</DisplayName>
-    <PublisherDisplayName>Dima</PublisherDisplayName>
+    <DisplayName>Курс белки</DisplayName>
+    <PublisherDisplayName>blTb</PublisherDisplayName>
     <Logo>images\StoreLogo.png</Logo>
   </Properties>
   <Prerequisites>
@@ -16,7 +16,8 @@
   </Resources>
   <Applications>
     <Application Id="App" StartPage="default.html">
-      <m3:VisualElements DisplayName="CurrencyExchangeRates" Square150x150Logo="images\Square150x150Logo.png" Square44x44Logo="images\Square44x44Logo.png" Description="CurrencyExchangeRates" ForegroundText="light" BackgroundColor="transparent">
+      <m3:VisualElements DisplayName="Курс белки" Square150x150Logo="images\Square150x150Logo.png" Square44x44Logo="images\Square44x44Logo.png" Description="Официальный курс белорусского рубля по отношению к иностранным валютам." ForegroundText="light" BackgroundColor="transparent">
+        <m3:LockScreen Notification="badge" BadgeLogo="images\BadgeLogo.png" />
         <m3:DefaultTile Wide310x150Logo="images\Wide310x150Logo.png" Square71x71Logo="images\Square71x71Logo.png">
         </m3:DefaultTile>
         <m3:SplashScreen Image="images\SplashScreen.png" />

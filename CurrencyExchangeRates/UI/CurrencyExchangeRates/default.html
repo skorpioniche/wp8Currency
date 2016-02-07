@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+Ôªø<!DOCTYPE html>
 <html>
     <head>
         <title>EX</title>
@@ -16,65 +16,74 @@
     <body>
         <div data-win-control="WinJS.UI.Pivot" data-win-options="{ selectedIndex: 0 }">
             <div class="USD" data-win-control="WinJS.UI.PivotItem" data-win-options="{ 'header': 'USD' }">
-                <table>
-                    <tr>
-                        <td class="curs-label"><p> ÛÒ Ì‡ ‰‡ÚÛ:</p></td>
-                        <td>
+                <div class="panel-info">
+                    <section class="info">
+                        <div class="curs-label"><p>–ö—É—Ä—Å –Ω–∞ –¥–∞—Ç—É:</p></div>
+                        <div class="curs-day">
                             <p class="currency-day"></p>
-                        </td>
-                        <td class="update-column"><button onclick="UpdateCurrency('USD')" class="button-update">&#xe149;</button></td>
-                    </tr>
-                </table>       
-                <div class="panel-heading">
-                    <img class="arrow" src="images/upArrow.png" alt=""/>             
-                    <p class="currency-value" id="currentCurrency"></p>
-                </div>             
-                <p class="currency-diff"></p>
+                        </div>
+                    </section>
+                    <div class="panel-heading">
+                        <div class="currency-changes">
+                            <img class="arrow" src="images/upArrow.png" alt="" />
+                            <p class="currency-diff"></p>
+                        </div>
+                        <p class="currency-value" id="currentCurrency"></p>
+                    </div>
+                </div>
                 <div class="currency-chart" style="height: 45%; width: 100%;"></div>
+                <div class="update-column">
+                    <button onclick="UpdateCurrency('USD')" class="button-update">&#xe149;</button>
+                </div>
             </div>
 
             <div class="pivotItem EUR" data-win-control="WinJS.UI.PivotItem" data-win-options="{ 'header': 'EUR' }">
-                <table>
-                    <tr>
-                        <td class="curs-label"><p> ÛÒ Ì‡ ‰‡ÚÛ:</p></td>
-                        <td>
-                            <p class="currency-day"></p>
-                        </td>
-                        <td class="update-column"><button onclick="UpdateCurrency('EUR')" class="button-update">&#xe149;</button></td>
-                    </tr>
-                </table> 
+                <section class="info">
+                    <div class="curs-label"><p>–ö—É—Ä—Å –Ω–∞ –¥–∞—Ç—É:</p></div>
+                    <div class="curs-day">
+                        <p class="currency-day"></p>
+                    </div>
+                </section> 
                 <div class="panel-heading">
-                    <img class="arrow" src="images/upArrow.png" alt="" />
-                    <p class="currency-value" id="currentCurrency"></p>           
-                </div>
-                <p class="currency-diff"></p>
+                    <div class="currency-changes">
+                        <img class="arrow" src="images/upArrow.png" alt="" />
+                        <p class="currency-diff"></p>
+                    </div>
+                    <p class="currency-value" id="currentCurrency"></p>
+                </div> 
+
                 <div class="currency-chart" style="height: 45%; width: 100%;"></div>
+                <div class="update-column">
+                    <button onclick="UpdateCurrency('EUR')" class="button-update">&#xe149;</button>
+                </div>
             </div>
 
             <div class="pivotItem RUB" data-win-control="WinJS.UI.PivotItem" data-win-options="{ 'header': 'RUB' }">
-                <table>
-                    <tr>
-                        <td class="curs-label"><p> ÛÒ Ì‡ ‰‡ÚÛ:</p></td>
-                        <td>
-                            <p class="currency-day"></p>
-                        </td>
-                        <td class="update-column"><button onclick="UpdateCurrency('RUB')" class="button-update">&#xe149;</button></td>
-                    </tr>
-                </table> 
+                <section class="info">
+                    <div class="curs-label"><p>–ö—É—Ä—Å –Ω–∞ –¥–∞—Ç—É:</p></div>
+                    <div class="curs-day">
+                        <p class="currency-day"></p>
+                    </div>
+                </section> 
                 <div class="panel-heading">
-                    <img class="arrow" src="images/upArrow.png" alt="" />
+                    <div class="currency-changes">
+                        <img class="arrow" src="images/upArrow.png" alt="" />
+                        <p class="currency-diff"></p>
+                    </div>
                     <p class="currency-value" id="currentCurrency"></p>
-                </div>
-                <p class="currency-diff"></p>
+                </div> 
                 <div class="currency-chart" style="height: 45%; width: 100%;"></div>
+                <div class="update-column">
+                    <button onclick="UpdateCurrency('RUB')" class="button-update">&#xe149;</button>
+                </div>
             </div>
-        </div>
+        </div>      
+
     </body>
 </html>
 
 
 <style>
-
     p {
         text-align: center;
         font-family: "Courier New", Courier, monospace;
@@ -85,6 +94,7 @@
         margin: 0 0px 10px 0px;
         width: 85%;
         float: left;
+        text-align: center;
     }
 
     p {
@@ -127,7 +137,7 @@
 		bottom: 0;
 		left: 0;
 		pointer-events: none;
-		background: rgba(0,0,0,0.4)
+        background: rgba(0, 0, 0, 0.4);
 	}
 
 
@@ -137,19 +147,25 @@
     }
 
     .button-update {
-         width: 5px;
+         width: 100%;
+        font-size: 300%;
+        height: 20%;
+        margin-top: 10px;
     }
 
     .update-column {
-        width: 5px;
+        width: 100%;
+        float: left;
+
     }
 
     .currency-day {
         font-weight: bold;
-        width: calc(50% - 5px);
     }
-
+    
     .curs-label {
+        width: 50%;
+        float: left;
         width: 50%;
     }
 
@@ -158,15 +174,41 @@
         float: left;
     }
 
-    .currency-diff {
+    .currency-diff,.currency-diff-perc  {
+        float: left;
+        font-weight: bold;
+        text-align: center;
+        width: 100%;
+        font-size: 13px;
+    }
+
+    .info {
+        margin-top: 10px;
+    }
+
+    .info div {
         float: left;
     }
 
+    .curs-day {
+        width: 50%;
+        text-align: left;
+    }
 
     .arrow {
         float: left;
+        width: 100%;
+        height: 45px;
+    }
+
+    .panel-info {
+        height: 30%;
+    }
+
+    .currency-changes {
+        float: left;
         width: 15%;
-        margin-top: 30px;
+        margin-top: 20px;   
     }
 
 </style>
